@@ -146,3 +146,10 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [azure-pipelines-img]: https://dev.azure.com/chinachu/Mirakurun/_apis/build/status/Chinachu.Mirakurun?branchName=master
 [azure-pipelines-url]: https://dev.azure.com/chinachu/Mirakurun/_build/latest?definitionId=1&branchName=master
 [docker-url]: https://hub.docker.com/r/chinachu/mirakurun
+
+## Modified on this fork
+
+* Added omit data carousel packets feature
+  You can enable from "Config" tab.
+  **Caution: OMIT DATA CAROUSEL PACKETS GLOBALLY**
+  If enabled, won't work clients requiring data carousel packets such as `web-bml` .
