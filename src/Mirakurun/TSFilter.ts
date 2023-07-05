@@ -58,6 +58,8 @@ const DSMCC_BLOCK_SIZE = 4066; // ARIB TR-B15
 const LOGO_DATA_NAME_BS = Buffer.from("LOGO-05"); // ARIB STD-B21, ARIB TR-B15
 const LOGO_DATA_NAME_CS = Buffer.from("CS_LOGO-05"); // ARIB STD-B21, ARIB TR-B15
 
+const DATA_CAROUSEL_STREAM_TYPE = 0x0D; // ARIB STD-B10 (ISO/IEC 13818-6 type D)
+
 interface BasicExtState {
     basic: {
         flags: FlagState[];
@@ -544,7 +546,10 @@ export default class TSFilter extends EventEmitter {
         this._providePids.add(data.PCR_PID);
 
         for (const stream of data.streams) {
-            this._providePids.add(stream.elementary_PID);
+            const isDataCarousel = stream.stream_type === DATA_CAROUSEL_STREAM_TYPE;
+            if (!isDataCarousel || (isDataCarousel && !_.config.server.omitDataCarousel)) {
+                this._providePids.add(stream.elementary_PID);
+            }
         }
 
         // sleep

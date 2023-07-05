@@ -10,3 +10,7 @@ path: \\.\pipe\mirakurun
 # Use this in LAN or VPN.
 # `~` to disable TCP port listening.
 port: 40772
+
+# omitDataCarousel: <boolean>
+# Omit data carousel stream packets.
+omitDataCarousel: false

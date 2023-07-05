@@ -245,6 +245,29 @@ const Configurator: React.FC<{ uiState: UIState, uiStateEvents: EventEmitter }> 
                         }}
                     />
 
+                    <Toggle
+                        label={
+                            <Stack horizontal verticalAlign="end">
+                                <Label>Omit Data Carousel</Label>
+                                <TooltipHost content={
+                                    `Omit data carousel packets globally.
+                                    ⚠️ If enabled, won't work clients requiring data carousel packets!`
+                                }>
+                                    <Icon
+                                        iconName="Warning"
+                                        style={{ marginLeft: 4, marginBottom: 6 }}
+                                    />
+                                </TooltipHost>
+                            </Stack>
+                        }
+                        checked={editing.omitDataCarousel === true}
+                        onText="Enable ⚠️"
+                        offText="Disable"
+                        onChange={(ev, checked) => {
+                            setEditing({ ...editing, omitDataCarousel: checked === true })
+                        }}
+                    />
+
                     <Stack horizontal tokens={{ childrenGap: "0 8" }} style={{ marginTop: 16 }}>
                         <PrimaryButton text="Save" disabled={!changed || invalid} onClick={() => setShowSaveDialog(true)} />
                         <DefaultButton text="Cancel" disabled={!changed} onClick={() => setEditing({ ...current })} />

@@ -74,6 +74,8 @@ export interface Server {
     readonly disableWebUI?: true;
     readonly allowIPv4CidrRanges?: string[];
     readonly allowIPv6CidrRanges?: string[];
+
+    readonly omitDataCarousel?: boolean;
 }
 
 export interface Tuner {
