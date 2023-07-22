@@ -254,7 +254,7 @@ const Configurator: React.FC<{ uiState: UIState, uiStateEvents: EventEmitter }> 
                                     ⚠️ If enabled, won't work clients requiring data carousel packets!`
                                 }>
                                     <Icon
-                                        iconName="Warning"
+                                        iconName="Info"
                                         style={{ marginLeft: 4, marginBottom: 6 }}
                                     />
                                 </TooltipHost>
